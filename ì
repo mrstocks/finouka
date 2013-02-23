@@ -1,0 +1,75 @@
+<% content_for :javascript do %>
+   <%= javascript_include_tag "jquery-1.8.1" %>
+   <%= javascript_include_tag "bootstrap" %>
+<% end %>
+
+   
+   <div class="marketing">
+   <h1>Petit élevage dans la mayenne.</h1>
+   <p class="marketing-byline">Donc plein de câlins pour eux.</p>
+</div>
+
+<hr class="soften">
+
+
+<!--- #TODO //-->
+<% if !@porte %>
+   <div class="row-fluid">
+      <div class="span12">
+         <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h4>Oh! Pas de chiot pour l'instant.</h4>
+            Pourquoi pas visitez le site pour voir nos productions et pourquoi pas reserver pour 2013.
+         </div>
+      </div>
+  </div>
+
+
+<% else %>
+
+<div class="row-fluid">
+   <div class="span12">
+      <h3><%= @porte.title %></h3>
+      <hr class="soften" />
+   </div>
+</div>
+
+<div class="row-fluid">
+   <% if @porte.dogs %>
+      <%= render :partial => "shared/dogs_intro_mating" %>
+   <% end %>
+</div>
+
+<% end %>
+
+<h3>Chiot passé</h3>
+
+
+
+<br />
+<div class="row-fluid">
+   <div class="span4">
+      <h3 class="center">Réservation d’un chiot.</h3>
+      <hr />
+      <p>Vous pouvez réserver un chiot, pour cela il suffit d’aller sur la page de chiot et nous contacter avec le nom du chiot ou simplement prendre le téléphone.  </p>
+   </div>
+   <div class="span4">
+      <h3 class="center">Facilité de paiement.</h3>
+      <hr />
+      <p>Nous savons que les de pédigrée valent chère, c’est pour cela nous offrons la possibilité de payer en 3 ou 4 fois par chèque.</p>
+   </div>
+
+   <div class="span4">
+      <h3 class="center">Lors de l’achat.</h3>
+      <hr />
+      <p>Vous recevez un contrat de bonne santé, un chiot avec toute l’injections nécessaires, vermifugé et l’inscrit au LOF.</p>
+   </div>
+</div>
+
+<% if @welcome %>
+   <%= render :partial => "shared/slider_welcome" %>
+<% end %>
+<hr class="soften">
+
+
+<%= render :partial => "shared/les_animaux" %>

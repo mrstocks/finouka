@@ -1,0 +1,26 @@
+<% content_for :css do  %>
+  <%= stylesheet_link_tag "lightbox.css" %>
+<% end %>
+
+<% content_for :javascript do %>
+   <%= javascript_include_tag "lightbox.js" %>
+<% end %>
+
+<div class="row-fluid">
+   <div class="span12">
+      <h3>Les autre animaux. <small>et humains qui habitent dans la ferme.</small></h3>
+   </div>
+</div>
+
+<hr class="soften"> 
+
+<div class="row-fluid">
+   <ul class="thumbnails">
+      <% @people.each do |t| %>
+      <li class="span3">
+         <a href="<%= t.file.normal.url.to_s%>" class="thumbnail" rel="lightbox"><%= image_tag t.file.span3.url.to_s, :class => "img-rounded" %></a>
+         <h5><%=raw t.title %></h5>  
+      </li>
+      <% end %>
+   </ul>
+</div>

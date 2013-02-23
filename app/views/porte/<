@@ -1,0 +1,32 @@
+
+<div class="row">
+   <div class="span12">
+      <h3>La portée de <%=raw @porte.title %>.</h3>
+      <hr />
+   </div>
+</div>
+
+
+<table>
+   <thead>
+      <tr>Nom</tr>
+      <tr>Sex</tr>
+      <tr>Couleur</tr>
+      <tr></tr>
+   </thead>
+   <tbody>
+      <% @porte.puppies do |t| %>
+         <tr>
+            <td><%= t.name %></td>
+            <td><%= t.sex %> </td>
+            <td><%= t.couleur %></td>
+            <td rowspan="4">
+               <%= image_tag t.puppypictures.normal.url.to_s %>
+            </td>
+         </tr>
+      <% end %>
+   </tbody>
+</table>
+
+
+

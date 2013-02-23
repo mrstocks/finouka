@@ -1,0 +1,104 @@
+
+<% content_for :css do %>
+   <%= stylesheet_link_tag "style" %>
+   <%= stylesheet_link_tag "dog" %>
+<% end %>
+
+
+<% content_for :javascript do %>
+   <%= javascript_include_tag "jquery-1.8.1" %>
+   <%= javascript_include_tag "bootstrap" %>
+<% end %>
+
+
+<% content_for :js_head do %>
+<% end %>
+
+
+
+<% content_for :menu do %>
+   <li class=""><a href="/porte/<%= @puppy.porte.slug %>">Dogue Allemand <%= @puppy.porte.title %></a> <span class="divider">/</span></li>
+   <li class="active"><a href="/chiot-dogue-allemand/<%= @puppy.slug %>">Chiot <%= @puppy.title %></a></li>
+<% end %>
+
+
+<div class="marketing">
+   <h1><%= @puppy.title %></h1>
+   <p class="marketing-byline"><%= @puppy.title %> est <%= @puppy.dispo %>.</p>
+</div>
+   
+<hr class="soften" %>
+
+
+<div class="row-fluid">
+
+         <div class="span6">
+            <h3>Quelques informations</h3>
+            <hr class="soften "/>
+            
+            <table class="table table-bordered">
+               <thead>
+                  <tr>
+                     <th>Nom</th>
+                     <th>Poid Naissances</th>
+                     <th>Collier</th>
+                     <th>Sex</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td class="text-align: center;"><%= @puppy.title %></td>
+                     <td class="text-align: center;"><%= @puppy.weight %>g</td>
+                     <td class="text-align: center;"><%= @puppy.collier %></td>
+                     <td class="text-align: center;"><%= @puppy.sex %></td>
+                  </tr>
+               </tbody>
+            </table>
+                  
+            <%=raw @puppy.info %>
+
+            <% if @puppy.puppydiapo.count != 0 %>
+                  <div id="myCarousel" class="carousel slide">
+                     
+                     <!-- Carousel items -->
+                     <div class="carousel-inner">
+                        <% @puppy.puppydiapo.each_with_index do |d, i| %>
+                           <% if i == 0 %>
+                              <div class="active item"><%= image_tag d.file.normal.url, :class => "img-rounded" %></div>
+                           <% else %>
+                                <div class="item"><%= image_tag d.file.normal.url, :class => "img-rounded" %></div>
+                           <% end %>
+                        <% end %>
+                     </div>
+                     <!-- Carousel nav -->
+                  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                  </div>
+            <% end %>
+
+         <div style="text-align: center;">
+            <a href="#contact" class="btn btn-large btn-primary disabled">Contactez-nous</a>
+         </div>
+
+         </div>
+         <div class="span3"> 
+            <% @puppy.porte.dogs.each do |t|%>
+               <%=raw t.content_right %>
+            <% end %>
+         </div>
+
+
+
+   <div class="span3">
+      <h3>Les advantage</h3>
+      <hr class="soften" />
+      <p>Possibilitée de <strong>payer en 3 foix</strong> <i class="icon-ok"></i></p>
+      <p>Chaque chiot on un certificat de bonne santée <i class="icon-ok"></i></p>
+      <p>Inscit au LOF <i class="icon-ok"></i></p>
+      <p>Un livret d'éducation et de votre petit <i class="icon-ok"></i></p>
+      <p>Suivi assurrer!  <i class="icon-resize-small"></i></p>
+      <p>
+   </div>
+
+</div>
+

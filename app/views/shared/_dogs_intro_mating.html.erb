@@ -1,0 +1,42 @@
+
+<div class="span4">
+      <div class="thumbnail" style="text-align: center">
+         <a href="/dogue-allemand/<%= @porte.dogs[0].slug %>"><%= image_tag @porte.dogs[0].file.proper.to_s, :class => "img-rounded" %></A>
+         <div class="caption">
+            <h4><%= @porte.dogs[0].title %></h4>
+            <p><%= raw @porte.dogs[0].introduction %></p>
+            
+            <div style="text-align: center">
+               <a href="/dogue-allemand/<%= @porte.dogs[0].slug %>" class="btn">Fiche de <%= @porte.dogs[0].title %></A>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="span4" style="text-align: center">
+      <h4><%= @porte.title %></h4>
+      <p><%= @porte.introduction %></p>
+
+      <% if @porte.puppies.count > 0 %>
+         <p><a href="/porte/<%= @porte.slug %>" class="btn btn-primary btn-large">Voir les <%= @porte.puppies.count %> chiots de la portées.</a></p>
+      <% else %>
+         <%= render :partial => "shared/mailinglist" %>
+      <% end %>
+
+
+   </div>
+
+   <div class="span4">
+      <div class="thumbnail" style="text-align: center">
+         <a href="/dogue-allemand/<%= @porte.dogs[1].slug %>"><%= image_tag @porte.dogs[1].file.proper.to_s, :class => "img-rounded" %></a>
+         <div class="caption">
+         <h4><%= @porte.dogs[1].title %></h4>
+         <p><%=raw @porte.dogs[1].introduction %></p>
+         <div style="text-align: center">
+            <a href="/dogue-allemand/<%= @porte.dogs[1].slug %>" class="btn">Fiche de <%= @porte.dogs[1].title %></a>
+         </div>
+      </div>
+   </div>
+
+</div>
+

@@ -1,0 +1,33 @@
+<div class="row-fluid">
+   <div class="span12">
+      <h3>Cyber-visite de notre élevage.</h3>
+      <hr style="soften" />
+      <div id="myCarousel" class="carousel slide">
+         
+         <!-- Carousel items -->
+         <div class="carousel-inner">
+            <% @welcome.each_with_index do |d, i| %>
+               <% if i == 0 %>
+                  <div class="active item"><%= image_tag d.file.url, :class => "img-rounded", :style => "margin-left: auto; margin-right: auto;" %>
+                    <div class="carousel-caption">
+                       <h4><%= d.title %></h4>
+                       <p><%= d.intro %>.</p>
+                    </div>
+                  </div>
+               <% else %>
+                    <div class="item"><%= image_tag d.file.url, :class => "img-rounded", :style => "margin-left: auto; margin-right: auto;" %>
+                     <div class="carousel-caption">
+                       <h4><%= d.title %></h4>
+                       <p><%= d.intro %></p>
+                    </div>
+                  </div>
+               <% end %>
+         <% end %>
+         </div>
+         <!-- Carousel nav -->
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+      </div>
+   </div>
+</div>
+

@@ -1,0 +1,22 @@
+<div id="mlist">
+<%= form_for :user, :remote => true, 
+      :url => { 
+         :controller => "email", 
+         :action => "create" 
+}, :class => "bs-docs-example" do |f|
+%>
+   <legend>Vous être trop <b>tôt</b>.</legend>
+   <label>Si vous voulez être averti des naissances.</label>
+
+   <% if flash[:notice_email] %>
+   <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%=raw flash[:notice_email] %>
+   </div>
+   <% else %>
+      <input type="text" name="email" placeholder="Entrez votre email ici..."><br />
+      <button type="submit" class="btn">Submit</button>
+   <% end %>
+<% end %>
+
+</div>
